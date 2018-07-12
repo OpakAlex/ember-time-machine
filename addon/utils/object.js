@@ -37,6 +37,9 @@ export function setObject(obj, key, value) {
 
   path = path.slice(0, path.length - 1);
   let o = getObject(obj, path.join('.'));
+  if (property === 'boxelements'){
+    return value;
+  }
 
   if (o) {
     return set(o, property, value);
