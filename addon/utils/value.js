@@ -45,7 +45,9 @@ export function unwrapValue(value) {
   }
 
   if (value && isArray(value)) {
-    return value.map((v) => get(v, 'isTimeMachine') ? unwrapValue(get(v, 'content')) : v);
+    return value.map((v) => {
+      return (v && get(v, 'isTimeMachine') ? unwrapValue(get(v, 'content')) : v)
+    });
   }
 
   return value;
